@@ -28,10 +28,10 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full p-4 bg-white dark:bg-gray-900 shadow-md flex justify-between items-center z-50">
-      <h1 className="text-xl font-bold">My Portfolio</h1>
-      <nav className="hidden md:flex">
-        <Link to="about" className="mx-4 cursor-pointer" smooth={true} duration={800}>About</Link>
+    <header className="fixed top-0 left-0 w-full p-4 bg-white dark:bg-gray-900 shadow-md flex justify-between items-center z-40">
+      <Link to="hero" smooth={true} duration={800} className="cursor-pointer"><h1 className="text-xl font-bold cursor-hover animated-gradient-text"><i>KhanhNN</i></h1></Link>
+      <nav className="hidden md:flex cursor-hover hover-gardient font-bold">
+        <Link to="about" className="mx-4 cursor-pointer " smooth={true} duration={800}>About</Link>
         <Link to="skills" className="mx-4 cursor-pointer" smooth={true} duration={800}>Skills</Link>
         <Link to="projects" className="mx-4 cursor-pointer" smooth={true} duration={800}>Projects</Link>
         <Link to="contact" className="mx-4 cursor-pointer" smooth={true} duration={800}>Contact</Link>
@@ -41,7 +41,7 @@ export default function Header() {
           {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon className="text-gray-700" />}
         </motion.div>
       </button>
-      
+
       <div className="relative md:hidden">
         <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 rounded-full bg-gray-200 dark:bg-gray-800">
           <FaBars className="text-gray-700 dark:text-white" />
