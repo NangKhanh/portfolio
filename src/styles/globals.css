@@ -95,6 +95,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -127,15 +128,26 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
-.flex-media{
-  padding-top: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 780px) {
+  .flex-media {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+  }
+}
+
+
+@media (max-width: 780px) {
+  .side-image{
+    width: 100%;
+  }
 }

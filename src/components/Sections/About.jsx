@@ -25,7 +25,7 @@ export default function About() {
           <div className="text-left space-y-4 col-span-4">
             <h3 className="text-3xl md:text-4xl font-bold text-pink-500 h-20">
               Hey There 👋, <br />
-              <TypewriterText text={typingTexts} delay={100} infinite={true}  />
+              <TypewriterText text={typingTexts} delay={100} infinite={true} />
             </h3>
 
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -48,6 +48,7 @@ export default function About() {
                 layout="fill"
                 objectFit="contain"
                 className="drop-shadow-2xl"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </motion.div>
           </div>

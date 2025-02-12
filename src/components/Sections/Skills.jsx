@@ -4,11 +4,10 @@ import TypewriterText from "../TypewriterText";
 
 export default function Skills() {
   const slugs = [
-    "typescript", "javascript", "dart", "java", "react", "flutter", "android",
-    "html5", "css3", "nodedotjs", "express", "nextdotjs", "prisma",
-    "amazonaws", "postgresql", "firebase", "nginx", "vercel",
+    "typescript", "javascript", "dart", "react", "flutter", "android",
+    "html5", "css3", "nodedotjs", "express", "nextdotjs", "prisma", "postgresql", "firebase", "nginx", "vercel",
     "testinglibrary", "jest", "cypress", "docker", "git",
-    "jira", "github", "gitlab", "visualstudiocode", "androidstudio", "sonarqube"
+    "jira", "github", "gitlab", "androidstudio", "sonarqube"
   ];
   const images = slugs.map(slug => `https://cdn.simpleicons.org/${slug}/${slug}`);
 
@@ -34,8 +33,6 @@ export default function Skills() {
   };
 
   const formattedText = [JSON.stringify(myInformation, null, 2)]; // Format JSON đẹp
-  console.log(formattedText);
-
   return (
     <motion.section
       id="skills"
@@ -52,7 +49,7 @@ export default function Skills() {
           <TypewriterText text={formattedText} />
         </div>
 
-        <div className="relative flex  items-center justify-center overflow-hidden mt-10 size-fit">
+        <div className="relative flex  items-center justify-center overflow-hidden mt-10 size-fit side-image">
           <IconCloud images={images} />
         </div>
       </div>

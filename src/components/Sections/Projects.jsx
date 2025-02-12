@@ -12,7 +12,14 @@ export default function Projects() {
       transition={{ duration: 1 }}
     >
       <h2 className="text-3xl font-bold">Projects</h2>
-      <Image src={projectImage} alt="Project" width={300} height={200} className="mx-auto rounded-lg" />
+      <Image
+        src={projectImage}
+        alt="Project"
+        width={300}
+        height={200}
+        className="mx-auto rounded-lg"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
+      />
       <p className="mt-4 text-lg">Some of my notable projects showcasing my skills and experience.</p>
     </motion.section>
   );
