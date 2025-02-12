@@ -10,31 +10,23 @@ const TypewriterText = ({ text, delay = 150, infinite = false }) => {
   useEffect(() => {
     let timeout;
 
-    // Hiệu ứng con trỏ nhấp nháy
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-
     if (isPaused) {
       timeout = setTimeout(() => {
         setIsPaused(false);
         if (infinite) setIsDeleting(true);
       }, 2000);
-      return () => {
-        clearTimeout(timeout);
-        clearInterval(cursorInterval);
-      };
+      return () => clearTimeout(timeout);
     }
 
     if (isDeleting) {
       if (displayText.length === 0) {
         setIsDeleting(false);
-        setCurrentIndex((current) => (current + 1) % text.length);
+        setCurrentIndex((prev) => (prev + 1) % text.length);
         return;
       }
 
       timeout = setTimeout(() => {
-        setDisplayText(text[currentIndex].slice(0, displayText.length - 1));
+        setDisplayText((prev) => prev.slice(0, -1));
       }, delay / 2);
     } else {
       if (displayText === text[currentIndex]) {
@@ -43,15 +35,20 @@ const TypewriterText = ({ text, delay = 150, infinite = false }) => {
       }
 
       timeout = setTimeout(() => {
-        setDisplayText(text[currentIndex].slice(0, displayText.length + 1));
+        setDisplayText((prev) => text[currentIndex].slice(0, prev.length + 1));
       }, delay);
     }
 
-    return () => {
-      clearTimeout(timeout);
-      clearInterval(cursorInterval);
-    };
+    return () => clearTimeout(timeout);
   }, [displayText, currentIndex, isDeleting, isPaused, text, delay, infinite]);
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
 
   return (
     <span>
