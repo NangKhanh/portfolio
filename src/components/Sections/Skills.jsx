@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { IconCloud } from "../magicui/icon-cloud";
 import TypewriterText from "../TypewriterText";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
+import { SiTypescript, SiNextdotjs, SiExpress, SiNestjs, SiMongodb, SiMysql } from "react-icons/si";
 
 export default function Skills() {
   const [flipped, setFlipped] = useState(false);
@@ -18,7 +20,7 @@ export default function Skills() {
   const myInformation = {
     language: ["JavaScript", "TypeScript"],
     front_end: {
-      technologies: ["ReactJS", "NextJS", "Redux Toolkit"],
+      technologies: ["ReactJS", "Redux Toolkit", "Ant Design"],
       features: [
         "Responsive with devices",
         "Develop user-friendly interfaces"
@@ -36,16 +38,16 @@ export default function Skills() {
   };
 
   const skills = [
-    { name: "HTML", level: 80 },
-    { name: "CSS", level: 95 },
-    { name: "JavaScript", level: 90 },
-    { name: "TypeScript", level: 70 },
-    { name: "ReactJS", level: 95 },
-    { name: "NextJS", level: 75 },
-    { name: "ExpressJS", level: 65 },
-    { name: "NestJS", level: 70 },
-    { name: "MySQL", level: 70 },
-    { name: "MongoDB", level: 65 },
+    { name: "HTML", level: 80, icon: <FaHtml5 className="text-2xl text-orange-600" /> },
+    { name: "CSS", level: 95, icon: <FaCss3Alt className="text-2xl text-blue-600" /> },
+    { name: "JavaScript", level: 90, icon: <FaJs className="text-2xl text-yellow-500" /> },
+    { name: "TypeScript", level: 70, icon: <SiTypescript className="text-2xl text-blue-500" /> },
+    { name: "ReactJS", level: 95, icon: <FaReact className="text-2xl text-cyan-500" /> },
+    { name: "NextJS", level: 75, icon: <SiNextdotjs className="text-2xl text-black dark:text-white" /> },
+    { name: "ExpressJS", level: 65, icon: <SiExpress className="text-2xl text-gray-800 dark:text-white" /> },
+    { name: "NestJS", level: 70, icon: <SiNestjs className="text-2xl text-red-600" /> },
+    { name: "MySQL", level: 70, icon: <SiMysql className="text-2xl text-blue-700" /> },
+    { name: "MongoDB", level: 65, icon: <SiMongodb className="text-2xl text-green-500" /> }
   ];
 
   const handleFlip = () => {
@@ -75,13 +77,13 @@ export default function Skills() {
             style={{ transformStyle: "preserve-3d" }}
           >
             <div className="absolute w-full h-full" style={{ backfaceVisibility: "hidden" }}>
-              <TypewriterText key={flipped} text={[JSON.stringify(myInformation, null, 2)]} delay={10} />
+              <TypewriterText key={flipped} text={[JSON.stringify(myInformation, null, 2)]} delay={20} />
             </div>
             <div className="absolute w-full h-full flex flex-col items-start justify-center p-6 bg-gray-100 dark:bg-gray-800 rounded-lg" style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}>
               {skills.map((skill, index) => (
                 <div key={index} className="w-full mb-4">
                   <div className="flex justify-between text-sm font-medium text-gray-900 dark:text-gray-200">
-                    <span>{skill.name}</span>
+                    <span className="flex items-center gap-2">{skill.icon} {skill.name}</span>
                     <span>{skill.level}%</span>
                   </div>
                   <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5 mt-1">

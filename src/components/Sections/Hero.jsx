@@ -1,9 +1,22 @@
 import { motion } from "framer-motion";
 import { FaArrowDown } from "react-icons/fa";
 import { NextSeo } from "next-seo";
-import {Link} from "react-scroll";
+import { Link } from "react-scroll";
+import { MorphingText } from "../magicui/morphing-text";
 
 export default function Hero() {
+    const texts = [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "ReactJS",
+        "NextJS",
+        "ExpressJS",
+        "NestJS",
+        "MySQL",
+        "MongoDB",
+    ];
     return (
         <>
             <NextSeo title="Portfolio | Home" description="Welcome to my portfolio website." />
@@ -15,8 +28,8 @@ export default function Hero() {
                     transition={{ duration: 1 }}
                 >
                     <h1 className="text-4xl sm:text-5xl font-bold">Welcome to My Portfolio</h1>
-                    <p className="text-lg mt-4">I am a FullStack Developer specializing in Nodejs</p>
-                    
+                    <p className="text-lg mt-4">I am a FullStack Developer specializing in <MorphingText texts={texts} /></p>
+
                     <Link to="about" className="mx-4" smooth={true} duration={800} ><FaArrowDown className="mt-6 mx-auto text-3xl animate-bounce cursor-pointer cursor-hover" /></Link>
 
                 </motion.div>

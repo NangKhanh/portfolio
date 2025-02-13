@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import projectImage from "../../public/profile.png";
 import TypewriterText from "../TypewriterText";
+import { Globe } from "../magicui/globe";
 
 export default function About() {
   const typingTexts = [
@@ -42,14 +43,20 @@ export default function About() {
               transition={{ duration: 0.5 }}
               className="relative w-full h-[400px]"
             >
-              <Image
+              {/* <Image
                 src={projectImage}
                 alt="Profile"
                 layout="fill"
                 objectFit="contain"
                 className="drop-shadow-2xl"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              /> */}
+
+              <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg  bg-background px-40 pb-40 pt-8 md:pb-60">
+               
+                <Globe className="top-25" />
+                <div className="pointer-events-none absolute inset-0 h-full " />
+              </div>
             </motion.div>
           </div>
         </div>
