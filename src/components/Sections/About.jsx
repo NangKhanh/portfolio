@@ -52,10 +52,12 @@ export default function About() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               /> */}
 
-              <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg  bg-background px-40 pb-40 pt-8 md:pb-60">
+              <div className="flex justify-center size-full">
+              <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg  bg-background px-40 pb-40 pt-8 md:pb-60 ">
                
-                <Globe className="top-25" />
-                <div className="pointer-events-none absolute inset-0 h-full " />
+               <Globe className="top-25 medium-left" />
+               <div className="pointer-events-none absolute inset-0 h-full " />
+             </div>
               </div>
             </motion.div>
           </div>

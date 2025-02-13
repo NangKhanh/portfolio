@@ -100,7 +100,7 @@ export default function Skills() {
           </motion.div>
         </div>
 
-        <div className="relative flex items-center justify-center overflow-hidden mt-10 size-fit">
+        <div className="relative flex items-center justify-center overflow-hidden mt-10  side-image">
           <IconCloud images={images} />
         </div>
       </div>
