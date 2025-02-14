@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import TypewriterText from "../TypewriterText";
 import { Ripple } from "../magicui/ripple";
 import { ShimmerButton } from "../magicui/shimmer-button";
-import Link from "next/link";
 
 export default function About() {
   const typingTexts = [
