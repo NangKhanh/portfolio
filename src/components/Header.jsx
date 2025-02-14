@@ -30,15 +30,16 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full p-4 bg-white dark:bg-gray-900 shadow-md flex justify-between items-center z-40">
-      <div className="z-10 rounded-lg p-4">
-        <ScrollProgress className="top-[70px]" />
-      </div>
       <Link to="hero" smooth={true} duration={800} className="cursor-pointer"><h1 className="text-xl font-bold cursor-hover animated-gradient-text"><i>KhanhNN</i></h1></Link>
       <nav className="hidden md:flex cursor-hover hover-gardient font-bold">
         <Link to="about" className="mx-4 cursor-pointer " smooth={true} duration={800}>About</Link>
         <Link to="skills" className="mx-4 cursor-pointer" smooth={true} duration={800}>Skills</Link>
         <Link to="projects" className="mx-4 cursor-pointer" smooth={true} duration={800}>Projects</Link>
         <Link to="contact" className="mx-4 cursor-pointer" smooth={true} duration={800}>Contact</Link>
+
+        <div className="z-10 rounded-lg p-4">
+          <ScrollProgress className="top-[70px]" />
+        </div>
       </nav>
       <button onClick={toggleDarkMode} className="hidden md:block">
         <motion.div animate={{ rotate: darkMode ? 180 : 0 }} transition={{ duration: 0.5 }}>
@@ -90,6 +91,10 @@ export default function Header() {
             </div>
           )}
         </AnimatePresence>
+
+        <div className="z-10 rounded-lg p-4">
+          <ScrollProgress className="top-[70px]" />
+        </div>
       </div>
 
     </header>
