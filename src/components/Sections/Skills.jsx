@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { IconCloud } from "../magicui/icon-cloud";
 import TypewriterText from "../TypewriterText";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
@@ -11,15 +11,15 @@ export default function Skills() {
   const [animateSkills, setAnimateSkills] = useState(false);
   const [terminalKey, setTerminalKey] = useState(0); // Key để force re-render Terminal
 
-  const slugs = [
+  const slugs = useMemo(() => [
     "typescript", "javascript", "dart", "java", "react", "flutter", "android",
     "html5", "css3", "nodedotjs", "express", "nextdotjs", "prisma",
     "amazonaws", "postgresql", "firebase", "nginx", "vercel",
     "testinglibrary", "jest", "cypress", "docker", "git",
     "jira", "github", "gitlab", "visualstudiocode", "androidstudio", "sonarqube"
-  ];
-  const images = slugs.map(slug => `https://cdn.simpleicons.org/${slug}/${slug}`);
+  ], []);
 
+  const images = useMemo(() => slugs.map(slug => `https://cdn.simpleicons.org/${slug}/${slug}`), [slugs]);
   const myInformation = {
     language: ["JavaScript", "TypeScript"],
     front_end: {

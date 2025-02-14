@@ -52,6 +52,7 @@ export default function Header() {
         <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 rounded-full bg-gray-200 dark:bg-gray-800">
           <FaBars className="text-gray-700 dark:text-white" />
         </button>
+
         <AnimatePresence>
           {menuOpen && (
             <div className="absolute top-0 right-10 z-50">
@@ -75,10 +76,24 @@ export default function Header() {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* 🔥 Dark Mode Toggle Button */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0, y: 0 }}
+                animate={{ scale: 1, opacity: 1, y: (menuItems.length + 1) * 50 }}
+                exit={{ scale: 0, opacity: 0, y: 0 }}
+                transition={{ duration: 0.3, delay: menuItems.length * 0.1 }}
+                className="absolute w-12 h-12 bg-white dark:bg-gray-900 flex justify-center items-center rounded-full shadow-lg"
+              >
+                <button onClick={toggleDarkMode} className="p-2">
+                  {darkMode ? <FaMoon className="text-gray-700 dark:text-white" /> : <FaSun className="text-yellow-500" />}
+                </button>
+              </motion.div>
             </div>
           )}
         </AnimatePresence>
       </div>
+
     </header>
   );
 }
