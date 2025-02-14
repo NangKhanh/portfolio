@@ -7,19 +7,11 @@ export default function About() {
   const typingTexts = [
     "I'm Nguyen Nang Khanh"
   ];
-  const handleDownloadCV = async () => {
-    const response = await fetch("http://api.cloudinary.com/v1_1/dqsjc7ny3/image/download?api_key=489171623791828&attachment=true&audit_context=eyJhY3Rvcl90eXBlIjoidXNlciIsImFjdG9yX2lkIjoiOTc3YjE3ZGRlMTgzMjIxMjZlZTgwNDNkZTA0ODA4NjQiLCJ1c2VyX2V4dGVybmFsX2lkIjoiNThiYzc4YTBjOTc0ZDBlMDE4ZjNjMzFhNTI4Yjc4IiwidXNlcl9jdXN0b21faWQiOiJuYW5na2hhbjMxMTIwMkBnbWFpbC5jb20iLCJjb21wb25lbnQiOiJjb25zb2xlIn0%3D&public_id=CV%2FCV_Developer_Nguyen_Nang_Khanh_qng6od&signature=b1f81ff46104d6da54fe9966c557ad8e4fa8f3ed&source=ml&target_filename=CV_Developer_Nguyen_Nang_Khanh_qng6od&timestamp=1739505981&type=upload");
-    const blob = await response.blob();
-    const href = URL.createObjectURL(blob);
-
-    const link = document.createElement("a");
-    link.href = href;
-    link.setAttribute("download", "CV_Developer_Nguyen_Nang_Khanh.pdf");
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(href);
+  const handleOpenCV = () => {
+    window.open(
+      "https://drive.google.com/file/d/1O9DEZXFnQ5GInfhcuzc7FewVZehEksRH/view?usp=sharing",
+      "_blank"
+    );
   };
 
   return (
@@ -76,9 +68,9 @@ export default function About() {
                 {/* <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-white">
                   Ripple
                 </p> */}
-                <ShimmerButton className="shadow-2xl " onClick={handleDownloadCV}>
+                <ShimmerButton className="shadow-2xl " onClick={handleOpenCV}>
                   <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                    Dowload my CV
+                    Explore my CV
                   </span>
 
                 </ShimmerButton>

@@ -95,11 +95,11 @@ export default function Skills() {
                 </AnimatedSpan>
 
                 <AnimatedSpan delay={2500} className="text-yellow-500">
-                  <span>✔ Verifying front-end framework. Found NextJs, ReactJs.</span>
+                  <span>✔ Verifying FE framework. Found NextJs, ReactJs.</span>
                 </AnimatedSpan>
 
                 <AnimatedSpan delay={3000} className="text-yellow-500">
-                  <span>✔ Verifying back-end framework. Found NestJs, ExpressJs.</span>
+                  <span>✔ Verifying BE framework. Found NestJs, ExpressJs.</span>
                 </AnimatedSpan>
 
                 <AnimatedSpan delay={3500} className="text-green-500">
