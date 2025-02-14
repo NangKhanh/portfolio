@@ -20,7 +20,7 @@ export default function Hero() {
     return (
         <>
             <NextSeo title="Portfolio | Home" description="Welcome to my portfolio website." />
-            <section id="hero" className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 text-center">
+            <section id="hero" className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 dark:from-[#5F0F40] dark:to-[#310E68]  text-white px-6 text-center">
                 <motion.div
                     className="max-w-3xl"
                     initial={{ opacity: 0, y: -50 }}

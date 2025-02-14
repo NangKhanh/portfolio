@@ -2,9 +2,10 @@ import { Link } from "react-scroll";
 import { FaMoon, FaSun, FaBars, FaUser, FaTools, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ScrollProgress } from "./magicui/scroll-progress";
 
 export default function Header() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -29,8 +30,13 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full p-4 bg-white dark:bg-gray-900 shadow-md flex justify-between items-center z-40">
+
+
       <Link to="hero" smooth={true} duration={800} className="cursor-pointer"><h1 className="text-xl font-bold cursor-hover animated-gradient-text"><i>KhanhNN</i></h1></Link>
       <nav className="hidden md:flex cursor-hover hover-gardient font-bold">
+        <div className="z-10 rounded-lg p-4">
+          <ScrollProgress className="top-[70px]" />
+        </div>
         <Link to="about" className="mx-4 cursor-pointer " smooth={true} duration={800}>About</Link>
         <Link to="skills" className="mx-4 cursor-pointer" smooth={true} duration={800}>Skills</Link>
         <Link to="projects" className="mx-4 cursor-pointer" smooth={true} duration={800}>Projects</Link>
@@ -38,7 +44,7 @@ export default function Header() {
       </nav>
       <button onClick={toggleDarkMode} className="hidden md:block">
         <motion.div animate={{ rotate: darkMode ? 180 : 0 }} transition={{ duration: 0.5 }}>
-          {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon className="text-gray-700" />}
+          {darkMode ? <FaMoon className="text-white-700" /> : <FaSun className="text-yellow-500" />}
         </motion.div>
       </button>
 
