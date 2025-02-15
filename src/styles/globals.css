@@ -7,36 +7,7 @@
   --foreground: #171717;
 }
 
-/* Tùy chỉnh thanh cuộn trên Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 8px;
-  /* Độ rộng thanh cuộn */
-  height: 8px;
-  /* Dành cho thanh cuộn ngang */
-}
 
-/* Phần nền của thanh cuộn */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  /* Màu nền */
-  border-radius: 10px;
-  /* Bo góc */
-}
-
-/* Phần thanh cuộn (cái kéo để cuộn) */
-::-webkit-scrollbar-thumb {
-  background: #888;
-  /* Màu chính của thanh cuộn */
-  border-radius: 10px;
-  /* Bo góc */
-  transition: background 0.3s;
-  /* Hiệu ứng hover */
-}
-
-/* Khi di chuột vào thanh cuộn */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 @media (max-width: 780px) {
   :root {
@@ -185,6 +156,26 @@ body {
   #skills h2 {
     padding-top: 50px;
 
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    transition: background 0.3s;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 
