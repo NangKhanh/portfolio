@@ -34,7 +34,7 @@ export default function Header() {
       <nav className="hidden md:flex cursor-hover hover-gardient font-bold">
         <Link to="about" className="mx-4 cursor-pointer " smooth={true} duration={800}>About</Link>
         <Link to="skills" className="mx-4 cursor-pointer" smooth={true} duration={800}>Skills</Link>
-        <Link to="projects" className="mx-4 cursor-pointer" smooth={true} duration={800}>Projects</Link>
+        <Link to="experience" className="mx-4 cursor-pointer" smooth={true} duration={800}>Experience</Link>
         <Link to="contact" className="mx-4 cursor-pointer" smooth={true} duration={800}>Contact</Link>
 
         <div className="z-10 rounded-lg p-4">

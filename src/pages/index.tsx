@@ -2,8 +2,8 @@ import Layout from "../components/Layout";
 import Hero from "../components/Sections/Hero";
 import About from "../components/Sections/About";
 import Skills from "../components/Sections/Skills";
-import Projects from "../components/Sections/Projects";
 import Contact from "../components/Sections/Contact";
+import WorkExperience from "../components/Sections/Projects";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
-        <Projects />
+        <WorkExperience />
         <Contact />
       </Layout>
     </>
