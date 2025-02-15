@@ -38,10 +38,7 @@ export default function WorkExperience() {
   return (
     <motion.section
       id="experience"
-      className="py-20 px-6 text-center bg-gradient-to-r from-[#E8CBC0] to-[#aab2d8] dark:from-[#796772] dark:to-[#25182e]"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      className="py-20 px-6 text-center bg-gradient-to-r from-[#E8CBC0] to-[#aab2d8] dark:from-[#796772] dark:to-[#25182e] w-[100vh]"
     >
       <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 pt-10">Work Experience</h2>
       <div className="relative max-w-4xl mx-auto">
@@ -51,10 +48,10 @@ export default function WorkExperience() {
             key={index}
             className={`relative flex items-center justify-between mb-10 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
               }`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            // initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            // whileInView={{ opacity: 1, x: 0 }}
+            // viewport={{ once: true }}
+            // transition={{ duration: 1 }}
           >
             <div className="w-1/2 p-4">
               <h3 className="text-xl font-semibold">{exp.position}</h3>
