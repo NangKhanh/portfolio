@@ -38,7 +38,7 @@ export default function WorkExperience() {
   return (
     <motion.section
       id="experience"
-      className="py-20 px-6 text-center bg-gradient-to-r from-[#E8CBC0] to-[#aab2d8] dark:from-[#796772] dark:to-[#25182e] w-[100vh]"
+      className="py-20 px-6 text-center bg-gradient-to-r from-[#E8CBC0] to-[#aab2d8] dark:from-[#796772] dark:to-[#25182e] w-[100vw]"
     >
       <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 pt-10">Work Experience</h2>
       <div className="relative max-w-4xl mx-auto">
