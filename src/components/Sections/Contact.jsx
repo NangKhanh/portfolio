@@ -36,7 +36,7 @@ export default function Contact() {
 
     let stars = [];
     const FPS = 60;
-    const numStars = 200;
+    const numStars = typeof window !== "undefined" && window.innerWidth < 768 ? 50 : 150;
     let mouse = { x: 0, y: 0 };
 
     for (let i = 0; i < numStars; i++) {
