@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Mail, Phone, Github, Linkedin, Facebook } from "lucide-react";
 
@@ -179,18 +179,32 @@ export default function Contact() {
                   {faq.question}
                   <span className="text-2xl">{openFAQ === index ? "−" : "+"}</span>
                 </button>
+                <AnimatePresence>
+                  {openFAQ === index && (
+                    <motion.p
+                      className="mt-2 text-gray-300 overflow-hidden"
+                      initial={{ opacity: 0, maxHeight: 0 }}
+                      animate={{ opacity: 1, maxHeight: 200 }}
+                      exit={{ opacity: 0, maxHeight: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="text-start">{faq.answer}</p>
+                    </motion.p>
+                  )}
+
+                </AnimatePresence>
+{/* 
                 {openFAQ === index && (
                   <motion.p
-                    className="mt-2 text-gray-300"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
+                    className="mt-2 text-gray-300 overflow-hidden"
+                    initial={{ opacity: 0, maxHeight: 0 }}
+                    animate={{ opacity: 1, maxHeight: 200 }} // Điều chỉnh giá trị maxHeight phù hợp
+                    exit={{ opacity: 0, maxHeight: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="text-start">
-                      {faq.answer}
-                    </p>
+                    <p className="text-start">{faq.answer}</p>
                   </motion.p>
-                )}
+                )} */}
               </div>
             ))}
           </div>
