@@ -65,7 +65,7 @@ export default function Hero() {
                 <Link
                   to="contact"
                   smooth
-                  duration={700}
+                  duration={0}
                   offset={-80}
                   className="cursor-hover inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/5 px-6 py-4 text-sm font-semibold text-[#f5ede5] backdrop-blur-md transition hover:bg-white/10 sm:w-auto sm:px-7"
                 >
@@ -154,7 +154,7 @@ export default function Hero() {
           <Link
             to="about"
             smooth
-            duration={700}
+            duration={0}
             offset={-80}
             className="cursor-hover absolute bottom-8 left-1/2 hidden -translate-x-1/2 cursor-pointer items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-[#f4ebe2] backdrop-blur-md md:inline-flex"
           >

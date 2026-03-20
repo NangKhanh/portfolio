@@ -21,7 +21,7 @@ export default function Header() {
           <Link
             to="hero"
             smooth
-            duration={700}
+            duration={0}
             className="cursor-pointer"
           >
             <div className="cursor-hover flex items-center gap-2 md:gap-3">
