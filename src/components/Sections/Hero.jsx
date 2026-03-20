@@ -55,7 +55,7 @@ export default function Hero() {
                 <Link
                   to="experience"
                   smooth
-                  duration={700}
+                  duration={0}
                   offset={-80}
                   className="cursor-hover inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f79752] to-[#f4c96b] px-6 py-4 text-sm font-semibold text-[#1d130d] shadow-[0_15px_35px_rgba(247,151,82,0.35)] transition hover:scale-[1.02] sm:w-auto sm:px-7"
                 >
