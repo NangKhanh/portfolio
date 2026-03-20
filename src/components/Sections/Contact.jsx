@@ -1,215 +1,167 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { Mail, Phone, Github, Linkedin, Facebook } from "lucide-react";
+import { Facebook, Github, Linkedin, Mail, MessageCircleMore, Phone } from "lucide-react";
+import { useState } from "react";
+
+const contactItems = [
+  {
+    label: "Email",
+    value: "nguyennangkhanh311202@gmail.com",
+    href: "mailto:nguyennangkhanh311202@gmail.com",
+    icon: <Mail className="h-5 w-5" />,
+  },
+  {
+    label: "Phone / Zalo",
+    value: "0964017363",
+    href: "https://zalo.me/0964017363",
+    icon: <Phone className="h-5 w-5" />,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/NangKhanh",
+    href: "https://github.com/NangKhanh",
+    icon: <Github className="h-5 w-5" />,
+  },
+  {
+    label: "LinkedIn",
+    value: "Khánh Năng",
+    href: "https://www.linkedin.com/in/khánh-năng-858458303/",
+    icon: <Linkedin className="h-5 w-5" />,
+  },
+  {
+    label: "Facebook",
+    value: "facebook.com/nangkhanh311202",
+    href: "https://www.facebook.com/nangkhanh311202/",
+    icon: <Facebook className="h-5 w-5" />,
+  },
+];
 
 const faqs = [
   {
-    question: "What technologies do I specialize in?",
-    answer:
-      "I specialize in modern web technologies like JavaScript, TypeScript, React, Node.js, and databases like MySQL and MongoDB.",
+    question: "What kind of work do you want to take on?",
+    answer: "Frontend-heavy product work, polished landing pages, and fullstack features where the interface quality matters.",
   },
   {
-    question: "Am I available for freelance projects?",
-    answer: "Yes! I’m open to freelance opportunities, consulting, and collaborations.",
+    question: "Can you collaborate with an existing team?",
+    answer: "Yes. I am comfortable joining ongoing projects, understanding current codebases, and improving them without disrupting delivery.",
   },
   {
-    question: "How can we work together?",
-    answer: "You can reach out via email, phone number or any of my social platforms. Let’s discuss how I can help bring your project to life!",
+    question: "What should clients expect from you?",
+    answer: "Clear implementation, responsive communication, and attention to finish across both technical behavior and UI detail.",
   },
 ];
 
 export default function Contact() {
-  const [openFAQ, setOpenFAQ] = useState(null);
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let stars = [];
-    const FPS = 60;
-    const numStars = typeof window !== "undefined" && window.innerWidth < 768 ? 50 : 150;
-    let mouse = { x: 0, y: 0 };
-
-    for (let i = 0; i < numStars; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1 + 1,
-        vx: Math.floor(Math.random() * 50) - 25,
-        vy: Math.floor(Math.random() * 50) - 25,
-      });
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.globalCompositeOperation = "lighter";
-
-      stars.forEach((s) => {
-        ctx.fillStyle = "#fff";
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
-        ctx.fill();
-        ctx.stroke();
-      });
-
-      ctx.beginPath();
-      stars.forEach((starI) => {
-        ctx.moveTo(starI.x, starI.y);
-        if (distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y);
-        stars.forEach((starII) => {
-          if (distance(starI, starII) < 150) {
-            ctx.lineTo(starII.x, starII.y);
-          }
-        });
-      });
-      ctx.lineWidth = 0.05;
-      ctx.strokeStyle = "white";
-      ctx.stroke();
-    }
-
-    function distance(point1, point2) {
-      return Math.sqrt(
-        Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2)
-      );
-    }
-
-    function update() {
-      stars.forEach((s) => {
-        s.x += s.vx / FPS;
-        s.y += s.vy / FPS;
-        if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
-        if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
-      });
-    }
-
-    function tick() {
-      draw();
-      update();
-      requestAnimationFrame(tick);
-    }
-
-    tick();
-
-    canvas.addEventListener("mousemove", (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-
-    // Resize canvas on window resize
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const [openFAQ, setOpenFAQ] = useState(0);
 
   return (
-    <motion.section
-      id="contact"
-      className="relative w-full h-screen flex flex-col items-center justify-center px-10 text-white"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-    >
-      {/* Background Canvas Animation */}
-      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full bg-black" />
+    <section id="contact" className="section-shell overflow-hidden">
+      <div className="absolute inset-0 opacity-60">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(73,181,186,0.18),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(247,151,82,0.18),transparent_28%)]" />
+      </div>
+      <div className="section-container relative">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="eyebrow">Get In Touch</div>
+            <h2 className="section-title mt-6">Let&apos;s build something that feels sharp from the first interaction.</h2>
+            <p className="section-copy mt-6">
+              For product roles, freelance work, or collaborations, reach out with the scope and I can respond quickly.
+              I am especially interested in products that need both strong implementation and better presentation.
+            </p>
 
-      {/* Content */}
-      <div className="relative z-10 text-center">
-        <h1 className="text-6xl font-extrabold uppercase">CONTACT ME</h1>
-        <p className="text-lg mt-4 max-w-lg mx-auto">
-          For any project inquiries, collaborations, or just to connect, feel free to reach out.
-        </p>
-
-        {/* Contact Details */}
-        <div className="mt-8 space-y-4 text-lg">
-          <div className="flex  space-x-4">
-            <Mail className="w-6 h-6 text-white" />
-            <a href="mailto:nguyennangkhanh311202@gmail.com" className="hover:text-blue-500 transition">
-              nguyennangkhanh311202@gmail.com
-            </a>
-          </div>
-          <div className="flex  space-x-4">
-            <Phone className="w-6 h-6 text-white" />
-            <a href="https://zalo.me/0964017363" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">
-              0964017363
-            </a>
-          </div>
-          <div className="flex  space-x-4">
-            <Github className="w-6 h-6 text-white" />
-            <a href="https://github.com/NangKhanh" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition">
-              GitHub
-            </a>
-          </div>
-          <div className="flex  space-x-4">
-            <Linkedin className="w-6 h-6 text-white" />
-            <a href="https://www.linkedin.com/in/khánh-năng-858458303/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
-              LinkedIn
-            </a>
-          </div>
-          <div className="flex  space-x-4">
-            <Facebook className="w-6 h-6 text-white" />
-            <a href="https://www.facebook.com/nangkhanh311202/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
-              Facebook
-            </a>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="mt-12 max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold uppercase">Frequently Asked Questions</h2>
-          <div className="mt-6 space-y-3">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border-b py-3">
-                <button
-                  className="w-full text-left flex justify-between items-center font-medium text-lg"
-                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+            <div className="mt-8 space-y-4">
+              {contactItems.map((item, index) => (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  className="cursor-hover panel-soft flex items-center gap-4 p-4 transition hover:border-white/[0.15] hover:bg-white/[0.07]"
                 >
-                  {faq.question}
-                  <span className="text-2xl">{openFAQ === index ? "−" : "+"}</span>
-                </button>
-                <AnimatePresence>
-                  {openFAQ === index && (
-                    <motion.p
-                      className="mt-2 text-gray-300 overflow-hidden"
-                      initial={{ opacity: 0, maxHeight: 0 }}
-                      animate={{ opacity: 1, maxHeight: 200 }}
-                      exit={{ opacity: 0, maxHeight: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <p className="text-start">{faq.answer}</p>
-                    </motion.p>
-                  )}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.08] text-[#f7b57c]">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.22em] text-[#8fd7d1]">{item.label}</p>
+                    <p className="mt-1 text-sm text-[#f4ebe2]">{item.value}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
 
-                </AnimatePresence>
-{/* 
-                {openFAQ === index && (
-                  <motion.p
-                    className="mt-2 text-gray-300 overflow-hidden"
-                    initial={{ opacity: 0, maxHeight: 0 }}
-                    animate={{ opacity: 1, maxHeight: 200 }} // Điều chỉnh giá trị maxHeight phù hợp
-                    exit={{ opacity: 0, maxHeight: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="text-start">{faq.answer}</p>
-                  </motion.p>
-                )} */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="panel animated-border p-6 md:p-8"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-[#f4c96b]">Why work together</p>
+                <h3 className="mt-3 text-3xl font-semibold text-[#fff4e8]">Professional output, not generic portfolio work</h3>
               </div>
-            ))}
-          </div>
+              <div className="rounded-full border border-white/10 bg-white/5 p-3 text-[#8fd7d1]">
+                <MessageCircleMore className="h-5 w-5" />
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {[
+                { label: "Response", value: "Fast and direct" },
+                { label: "Focus", value: "Frontend quality" },
+                { label: "Style", value: "Practical execution" },
+              ].map((item) => (
+                <div key={item.label} className="rounded-[22px] border border-white/[0.08] bg-white/[0.04] p-5">
+                  <p className="text-xs uppercase tracking-[0.22em] text-[#9ddeda]">{item.label}</p>
+                  <p className="mt-3 text-lg font-semibold text-white">{item.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-[28px] border border-white/[0.08] bg-[#0f1518]/70 p-5">
+              <p className="text-sm uppercase tracking-[0.24em] text-[#f5b07d]">FAQs</p>
+              <div className="mt-5 space-y-3">
+                {faqs.map((faq, index) => (
+                  <div key={faq.question} className="rounded-[20px] border border-white/[0.08] bg-white/[0.03] px-4 py-4">
+                    <button
+                      className="flex w-full items-center justify-between gap-4 text-left"
+                      onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                    >
+                      <span className="text-base font-medium text-[#fff4e8]">{faq.question}</span>
+                      <span className="text-2xl text-[#f4c96b]">{openFAQ === index ? "−" : "+"}</span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {openFAQ === index && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.28 }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pt-3 text-sm leading-7 text-[#d1c6bc]">{faq.answer}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

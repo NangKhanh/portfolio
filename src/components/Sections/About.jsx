@@ -1,12 +1,30 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight, Download, Film, Gamepad2, Lightbulb } from "lucide-react";
 import TypewriterText from "../TypewriterText";
-import { Ripple } from "../magicui/ripple";
-import { ShimmerButton } from "../magicui/shimmer-button";
+
+const highlights = [
+  {
+    title: "Product mindset",
+    copy: "I do not only build screens. I care about task flow, clarity, and how features support business goals.",
+    icon: <Lightbulb className="h-5 w-5" />,
+  },
+  {
+    title: "Strong execution",
+    copy: "From API integration to polished UI states, I focus on shipping reliable experiences without losing speed.",
+    icon: <ArrowUpRight className="h-5 w-5" />,
+  },
+  {
+    title: "Curious by default",
+    copy: "Outside work, I stay sharp by exploring new tooling, AI workflows, films, games, and product trends.",
+    icon: <Film className="h-5 w-5" />,
+  },
+];
+
+const personalTags = ["React architecture", "Motion design", "API integration", "Design systems", "Problem solving", "Fast iteration"];
 
 export default function About() {
-  const typingTexts = [
-    "I'm Nguyen Nang Khanh"
-  ];
+  const typingTexts = ["I'm Nguyen Nang Khanh", "I build products with depth", "I care about the finish"];
+
   const handleOpenCV = () => {
     window.open(
       "https://drive.google.com/file/d/1O9DEZXFnQ5GInfhcuzc7FewVZehEksRH/view?usp=sharing",
@@ -15,73 +33,92 @@ export default function About() {
   };
 
   return (
-    <motion.section
-      id="about"
-      className="min-h-screen py-20 px-6 bg-gray-50 dark:bg-gray-900 relative"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <div className="max-w-6xl mx-auto pt-20">
-        <h2 className="text-4xl font-bold text-center text-amber-400 mb-16">
-          About me
-        </h2>
-
-        <div className=" items-center w-full">
-          <div className="text-left space-y-4 col-span-4">
-            <h3 className="text-3xl md:text-4xl font-bold text-pink-500 h-20">
-              Hey There 👋, <br />
-              <TypewriterText text={typingTexts} delay={100} infinite={true} />
-            </h3>
-
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              A Full-Stack JavaScript Developer with a passion for building modern, high-performance web applications. I thrive on solving complex problems and crafting seamless user experiences with technologies like React, Next.js, Node.js, and MySQL.
-              <br />Beyond coding, I love watching movies, playing games, and exploring new technologies. Whether it's diving into the latest JavaScript frameworks or experimenting with AI, I'm always eager to learn and push my skills further.
-              <br />Let's build something awesome together! 🚀
+    <section id="about" className="section-shell">
+      <div className="section-container">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="eyebrow">About Me</div>
+            <h2 className="section-title mt-6 max-w-3xl">
+              Building immersive web products with a frontend eye and a fullstack backbone.
+            </h2>
+            <div className="mt-6 text-2xl font-semibold text-[#f7b57c] md:text-4xl">
+              <TypewriterText text={typingTexts} delay={70} infinite />
+            </div>
+            <p className="section-copy mt-8 max-w-3xl">
+              I am a JavaScript fullstack developer with strong frontend instincts. My work leans into responsive interfaces,
+              fluid interactions, maintainable architecture, and translating rough ideas into something users can trust quickly.
+              I enjoy balancing technical constraints with visual quality so products feel complete, not just functional.
             </p>
-          </div>
 
-          <div className="col-span-2">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-full h-[400px]"
-            >
-              {/* <Image
-                src={projectImage}
-                alt="Profile"
-                layout="fill"
-                objectFit="contain"
-                className="drop-shadow-2xl"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              /> */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              {personalTags.map((tag) => (
+                <span key={tag} className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm text-[#dcccc2]">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
-              {/* <div className="flex justify-center size-full">
-                <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg  bg-background px-40 pb-40 pt-8 md:pb-60 ">
-
-                  <Globe className="top-25 medium-left" />
-                  <div className="pointer-events-none absolute inset-0 h-full " />
-                </div>
-              </div> */}
-              <div className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background">
-                {/* <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-white">
-                  Ripple
-                </p> */}
-                <ShimmerButton className="shadow-2xl " onClick={handleOpenCV}>
-                  <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                    Explore my CV
-                  </span>
-
-                </ShimmerButton>
-
-                <Ripple numCircles={3} mainCircleSize={220} />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="panel animated-border p-6 md:p-8"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm uppercase tracking-[0.22em] text-[#8fd7d1]">Snapshot</p>
+                <h3 className="mt-3 text-3xl font-semibold text-[#fff4e8]">Practical, collaborative, detail-driven</h3>
               </div>
+              <div className="rounded-full border border-white/10 bg-white/5 p-3 text-[#f4c96b]">
+                <Gamepad2 className="h-5 w-5" />
+              </div>
+            </div>
 
-            </motion.div>
-          </div>
+            <div className="mt-8 grid gap-4">
+              {highlights.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: 14 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.12 }}
+                  className="panel-soft flex gap-4 p-5"
+                >
+                  <div className="mt-1 rounded-2xl bg-white/5 p-3 text-[#f7b57c] h-fit">{item.icon}</div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white">{item.title}</h4>
+                    <p className="mt-2 text-sm leading-7 text-[#d2c6bd]">{item.copy}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-[24px] border border-[#f7b57c]/20 bg-gradient-to-br from-[#2d1c16] to-[#11181b] p-5">
+              <p className="text-sm uppercase tracking-[0.22em] text-[#f4c96b]">Open for</p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                <span className="rounded-full bg-white/[0.08] px-3 py-2 text-sm text-[#f5ede5]">Frontend roles</span>
+                <span className="rounded-full bg-white/[0.08] px-3 py-2 text-sm text-[#f5ede5]">Fullstack products</span>
+                <span className="rounded-full bg-white/[0.08] px-3 py-2 text-sm text-[#f5ede5]">Freelance collaboration</span>
+              </div>
+            </div>
+
+            <button
+              onClick={handleOpenCV}
+              className="cursor-hover mt-8 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#49b5ba] to-[#8fd7d1] px-6 py-4 text-sm font-semibold text-[#111517] shadow-[0_18px_34px_rgba(73,181,186,0.28)] transition hover:scale-[1.02]"
+            >
+              <Download className="h-4 w-4" />
+              Explore my CV
+            </button>
+          </motion.div>
         </div>
-      </div >
-    </motion.section >
+      </div>
+    </section>
   );
 }

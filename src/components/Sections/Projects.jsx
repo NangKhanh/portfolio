@@ -1,100 +1,120 @@
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { ArrowUpRight, Briefcase, Sparkles } from "lucide-react";
 
 const experiences = [
   {
-    year: "09/2023 – 01/2024",
-    position: "Intern Javascripts Developer",
-    company: "Keysoft technology.",
-    description: "Learn and support project development.",
+    year: "09/2023 - 01/2024",
+    position: "Intern JavaScript Developer",
+    company: "Keysoft Technology",
+    description: "Learned team workflows, supported development tasks, and built a stronger engineering foundation in commercial projects.",
   },
   {
-    year: "01/2024 – 04/2025",
-    position: "FullStack Developer",
-    company: "Ecocheck Tenant - BeevR Technologies",
-    description:
-      "Develop software to support evaluation and calculation of emissions for businesses and organizations looking to measure and improve their environmental impact.",
+    year: "01/2024 - 04/2025",
+    position: "Fullstack Developer",
+    company: "Ecocheck Tenant · BeevR Technologies",
+    description: "Built software for carbon emissions evaluation and reporting, helping businesses measure and improve environmental impact.",
   },
   {
-    year: "3/2024 – 01/2025",
-    position: "FullStack Developer",
-    company: "Ecocheck Landing Page - BeevR Technologies",
-    description:
-      "Build a landing page website for SEO, collect user data, provide certification through a greenhouse gas inventory lesson system.",
+    year: "03/2024 - 01/2025",
+    position: "Fullstack Developer",
+    company: "Ecocheck Landing Page · BeevR Technologies",
+    description: "Delivered landing experiences focused on SEO, lead capture, and certification support through greenhouse gas training flows.",
   },
   {
-    year: "5/2024 – 6/2024",
+    year: "05/2024 - 06/2024",
     position: "Front-End Developer",
-    company: "Beevr website - BeevR Technologies",
-    description: "Build a introduce website for company.",
+    company: "BeevR Website · BeevR Technologies",
+    description: "Built a company introduction website with a stronger focus on brand presentation and UX clarity.",
   },
   {
-    year: "09/2024 – 04/2025",
+    year: "09/2024 - 04/2025",
     position: "Back-End Developer",
-    company: "Subscriptions service - BeevR Technologies",
-    description:
-      "Build a common resource management and subscription system for different projects (ecocheck tenant and others).",
+    company: "Subscription Service · BeevR Technologies",
+    description: "Built shared subscription and resource-management logic used across multiple internal and client-facing products.",
   },
   {
-    year: "05/2025 – 12/2025",
+    year: "05/2025 - 12/2025",
     position: "Front-End Developer",
-    company: "Synaptic - Sotatek",
-    description:
-      "Develop and implement UI features for a scheduling website, enabling doctors and patients to create and manage appointments.",
+    company: "Synaptic · Sotatek",
+    description: "Implemented UI features for a medical scheduling platform so doctors and patients could manage appointments effectively.",
   },
   {
-    year: "09/2025 – 12/2025",
+    year: "09/2025 - 12/2025",
     position: "Front-End Developer",
-    company: "SotaVision - Sotatek/US client",
-    description:
-      "Standardize quality with AI and Computer Vision for precise defect detection and real-time feedback. Try the interactive demo, then partner with us to tailor SotaVision to your environment.",
+    company: "SotaVision · Sotatek / US Client",
+    description: "Contributed to AI and computer-vision product UI for defect detection workflows and real-time quality feedback.",
   },
-  
   {
-    year: "09/2025 – now",
+    year: "09/2025 - Present",
     position: "Front-End Developer",
-    company: "Sentbe - Sotatek/South Korea client",
-    description:'Develop and maintain the webview for a cross-border remittance application from Korea.'
-  }
+    company: "Sentbe · Sotatek / South Korea Client",
+    description: "Develop and maintain the webview experience for a cross-border remittance product used in Korea.",
+  },
 ];
 
 export default function WorkExperience() {
   return (
-    <motion.section
-      id="experience"
-      className="py-20 px-6 text-center bg-gradient-to-r from-[#E8CBC0] to-[#aab2d8] dark:from-[#796772] dark:to-[#25182e] "
-    >
-      <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 pt-10">
-        Work Experience
-      </h2>
-      <div className="relative max-w-4xl mx-auto">
-        <div className="absolute left-1/2 w-1 bg-gray-300 dark:bg-gray-600 h-full transform -translate-x-1/2"></div>
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            className={`relative flex items-center justify-between mb-10 ${
-              index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-            }`}
-            // initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            // whileInView={{ opacity: 1, x: 0 }}
-            // viewport={{ once: true }}
-            // transition={{ duration: 1 }}
-          >
-            <div className="w-1/2 p-4">
-              <h3 className="text-xl font-semibold">{exp.position}</h3>
-              <p className="text-gray-700 dark:text-gray-300">{exp.company}</p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
-                {exp.description}
-              </p>
-            </div>
-            <div className="w-1/2 flex justify-center">
-              <div className="bg-gray-200 dark:bg-gray-700 p-4 rounded-full shadow-lg">
-                {exp.year}
-              </div>
-            </div>
-          </motion.div>
-        ))}
+    <section id="experience" className="section-shell">
+      <div className="section-container">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="eyebrow justify-center">Experience Timeline</div>
+          <h2 className="section-title mt-6">A progression shaped by real product delivery.</h2>
+          <p className="section-copy mt-6">
+            My experience spans internal tools, SEO-focused pages, product webviews, and systems that needed both speed and
+            maintainability. The common pattern is shipping usable software, not just demos.
+          </p>
+        </div>
+
+        <div className="relative mt-16">
+          <div className="absolute left-5 top-0 hidden h-full w-px bg-gradient-to-b from-[#f79752] via-[#f4c96b] to-[#49b5ba] md:left-1/2 md:block" />
+          <div className="grid gap-6">
+            {experiences.map((exp, index) => {
+              const isRight = index % 2 === 1;
+
+              return (
+                <motion.div
+                  key={`${exp.company}-${exp.year}`}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.55, delay: index * 0.04 }}
+                  className={`relative grid gap-5 md:grid-cols-2 ${isRight ? "md:[&>*:first-child]:order-2" : ""}`}
+                >
+                  <div className={`hidden md:flex ${isRight ? "justify-start pl-10" : "justify-end pr-10"}`}>
+                    <div className="max-w-md rounded-full border border-[#f4c96b]/25 bg-[#16110f]/80 px-5 py-3 text-sm font-medium tracking-[0.18em] text-[#f4c96b] shadow-[0_12px_40px_rgba(0,0,0,0.18)] w-fit h-fit">
+                      {exp.year}
+                    </div>
+                  </div>
+
+                  <div className={`relative ${isRight ? "md:pr-10" : "md:pl-10"}`}>
+                    <div className="panel animated-border h-full p-6 md:p-7">
+                      <div className="mb-5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.08] text-[#8ed1cf]">
+                            <Briefcase className="h-5 w-5" />
+                          </div>
+                          <div>
+                            <p className="text-xs uppercase tracking-[0.22em] text-[#f5b07d] md:hidden">{exp.year}</p>
+                            <p className="text-xs uppercase tracking-[0.22em] text-[#9ddeda]">Role</p>
+                          </div>
+                        </div>
+                        <Sparkles className="h-4 w-4 text-[#f4c96b]" />
+                      </div>
+                      <h3 className="text-2xl font-semibold text-[#fff4e8]">{exp.position}</h3>
+                      <p className="mt-2 text-base font-medium text-[#8fd7d1]">{exp.company}</p>
+                      <p className="mt-4 text-sm leading-7 text-[#d1c6bc]">{exp.description}</p>
+                      <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#f7b57c]">
+                        Product work
+                        <ArrowUpRight className="h-4 w-4" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

@@ -1,102 +1,125 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, MoonStar, Sparkles, SunMedium, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
-import { FaMoon, FaSun, FaBars, FaUser, FaTools, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ScrollProgress } from "./magicui/scroll-progress";
+
+const navItems = [
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "contact", label: "Contact" },
+];
 
 export default function Header() {
   const [darkMode, setDarkMode] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const storedDarkMode = localStorage.getItem("darkMode") === "true";
-    setDarkMode(storedDarkMode);
-    document.documentElement.classList.toggle("dark", storedDarkMode);
+    const storedDarkMode = localStorage.getItem("darkMode");
+    const prefersDark = storedDarkMode === null ? true : storedDarkMode === "true";
+    setDarkMode(prefersDark);
+    document.documentElement.classList.toggle("dark", prefersDark);
   }, []);
 
   const toggleDarkMode = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem("darkMode", newMode);
-    document.documentElement.classList.toggle("dark", newMode);
+    const nextMode = !darkMode;
+    setDarkMode(nextMode);
+    localStorage.setItem("darkMode", String(nextMode));
+    document.documentElement.classList.toggle("dark", nextMode);
   };
 
-  const menuItems = [
-    { id: "about", icon: <FaUser /> },
-    { id: "skills", icon: <FaTools /> },
-    { id: "projects", icon: <FaProjectDiagram /> },
-    { id: "contact", icon: <FaEnvelope /> }
-  ];
-
   return (
-    <header className="fixed top-0 left-0 w-full p-4 bg-white dark:bg-gray-900 shadow-md flex justify-between items-center z-40">
-      <Link to="hero" smooth={true} duration={800} className="cursor-pointer"><h1 className="text-xl font-bold cursor-hover animated-gradient-text"><i>KhanhNN</i></h1></Link>
-      <nav className="hidden md:flex cursor-hover hover-gardient font-bold">
-        <Link to="about" className="mx-4 cursor-pointer " smooth={true} duration={800}>About</Link>
-        <Link to="skills" className="mx-4 cursor-pointer" smooth={true} duration={800}>Skills</Link>
-        <Link to="experience" className="mx-4 cursor-pointer" smooth={true} duration={800}>Experience</Link>
-        <Link to="contact" className="mx-4 cursor-pointer" smooth={true} duration={800}>Contact</Link>
-
-        <div className="z-10 rounded-lg p-4">
-          <ScrollProgress className="top-[70px]" />
-        </div>
-      </nav>
-      <button onClick={toggleDarkMode} className="hidden md:block">
-        <motion.div animate={{ rotate: darkMode ? 180 : 0 }} transition={{ duration: 0.5 }}>
-          {darkMode ? <FaMoon className="text-white-700" /> : <FaSun className="text-yellow-500" />}
-        </motion.div>
-      </button>
-
-      <div className="relative md:hidden">
-        <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 rounded-full bg-gray-200 dark:bg-gray-800">
-          <FaBars className="text-gray-700 dark:text-white" />
-        </button>
-
-        <AnimatePresence>
-          {menuOpen && (
-            <div className="absolute top-0 right-10 z-50">
-              {menuItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ scale: 0, opacity: 0, y: 0 }}
-                  animate={{ scale: 1, opacity: 1, y: (index + 1) * 50 }}
-                  exit={{ scale: 0, opacity: 0, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="absolute w-12 h-12 bg-white dark:bg-gray-900 flex justify-center items-center rounded-full shadow-lg"
-                >
-                  <Link
-                    to={item.id}
-                    smooth={true}
-                    duration={800}
-                    className="text-lg cursor-pointer"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {item.icon}
-                  </Link>
-                </motion.div>
-              ))}
-
-              {/* 🔥 Dark Mode Toggle Button */}
-              <motion.div
-                initial={{ scale: 0, opacity: 0, y: 0 }}
-                animate={{ scale: 1, opacity: 1, y: (menuItems.length + 1) * 50 }}
-                exit={{ scale: 0, opacity: 0, y: 0 }}
-                transition={{ duration: 0.3, delay: menuItems.length * 0.1 }}
-                className="absolute w-12 h-12 bg-white dark:bg-gray-900 flex justify-center items-center rounded-full shadow-lg"
-              >
-                <button onClick={toggleDarkMode} className="p-2">
-                  {darkMode ? <FaMoon className="text-gray-700 dark:text-white" /> : <FaSun className="text-yellow-500" />}
-                </button>
-              </motion.div>
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 px-4 py-4 md:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-[#1a1513]/70 px-5 py-3 shadow-[0_12px_50px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+          <Link
+            to="hero"
+            smooth
+            duration={700}
+            className="cursor-pointer"
+          >
+            <div className="cursor-hover flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#f79752] to-[#49b5ba] text-sm font-bold text-[#140e0c] shadow-[0_0_30px_rgba(247,151,82,0.35)]">
+                KN
+              </div>
+              <div>
+                <p className="text-sm uppercase tracking-[0.26em] text-[#f5b07d]">Portfolio</p>
+                <h1 className="text-lg font-semibold text-white">Nguyen Nang Khanh</h1>
+              </div>
             </div>
-          )}
-        </AnimatePresence>
+          </Link>
 
-        <div className="z-10 rounded-lg p-4">
-          <ScrollProgress className="top-[70px]" />
+          <nav className="hidden items-center gap-2 md:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.id}
+                smooth
+                duration={0}
+                offset={-80}
+                className="cursor-hover rounded-full px-4 py-2 text-sm font-medium text-[#d9cec5] transition hover:bg-white/[0.08] hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-[#d8cbc0] md:flex">
+              <Sparkles className="h-4 w-4 text-[#f7b57c]" />
+              Open to frontend and fullstack roles
+            </div>
+            {/* <button
+              onClick={toggleDarkMode}
+              className="cursor-hover rounded-full border border-white/10 bg-white/5 p-3 text-[#f6eadf] transition hover:border-white/20 hover:bg-white/10"
+              aria-label="Toggle color mode"
+            >
+              <motion.div
+                animate={{ rotate: darkMode ? 0 : 180, scale: darkMode ? 1 : 0.9 }}
+                transition={{ duration: 0.35 }}
+              >
+                {darkMode ? <MoonStar className="h-5 w-5" /> : <SunMedium className="h-5 w-5 text-[#f7b57c]" />}
+              </motion.div>
+            </button> */}
+            <button
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="rounded-full border border-white/10 bg-white/5 p-3 text-white md:hidden"
+              aria-label="Toggle navigation"
+            >
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
-      </div>
+        <ScrollProgress className="top-[84px] h-[3px] rounded-full bg-gradient-to-r from-[#f79752] via-[#f4c96b] to-[#49b5ba]" />
+      </header>
 
-    </header>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            className="fixed inset-x-4 top-24 z-40 rounded-[28px] border border-white/10 bg-[#171311]/95 p-5 shadow-[0_20px_80px_rgba(0,0,0,0.34)] backdrop-blur-xl md:hidden"
+          >
+            <div className="flex flex-col gap-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.id}
+                  smooth
+                  duration={700}
+                  offset={-70}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-base font-medium text-[#f4ebe2]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
