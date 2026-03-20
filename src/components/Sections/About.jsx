@@ -42,11 +42,11 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="eyebrow">About Me</div>
+            <div className="eyebrow w-fit max-w-full">About Me</div>
             <h2 className="section-title mt-6 max-w-3xl">
               Building immersive web products with a frontend eye and a fullstack backbone.
             </h2>
-            <div className="mt-6 text-2xl font-semibold text-[#f7b57c] md:text-4xl">
+            <div className="mt-6 text-xl font-semibold text-[#f7b57c] sm:text-2xl md:text-4xl">
               <TypewriterText text={typingTexts} delay={70} infinite />
             </div>
             <p className="section-copy mt-8 max-w-3xl">
@@ -69,14 +69,14 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="panel animated-border p-6 md:p-8"
+            className="panel animated-border p-5 sm:p-6 md:p-8"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm uppercase tracking-[0.22em] text-[#8fd7d1]">Snapshot</p>
-                <h3 className="mt-3 text-3xl font-semibold text-[#fff4e8]">Practical, collaborative, detail-driven</h3>
+                <h3 className="mt-3 text-2xl font-semibold text-[#fff4e8] sm:text-3xl">Practical, collaborative, detail-driven</h3>
               </div>
-              <div className="rounded-full border border-white/10 bg-white/5 p-3 text-[#f4c96b]">
+              <div className="rounded-full border border-white/10 bg-white/5 p-3 text-[#f4c96b] shrink-0">
                 <Gamepad2 className="h-5 w-5" />
               </div>
             </div>
@@ -89,9 +89,9 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.12 }}
-                  className="panel-soft flex gap-4 p-5"
+                  className="panel-soft flex gap-3 p-4 sm:gap-4 sm:p-5"
                 >
-                  <div className="mt-1 rounded-2xl bg-white/5 p-3 text-[#f7b57c] h-fit">{item.icon}</div>
+                  <div className="mt-1 h-fit shrink-0 rounded-2xl bg-white/5 p-3 text-[#f7b57c]">{item.icon}</div>
                   <div>
                     <h4 className="text-lg font-semibold text-white">{item.title}</h4>
                     <p className="mt-2 text-sm leading-7 text-[#d2c6bd]">{item.copy}</p>
@@ -111,7 +111,7 @@ export default function About() {
 
             <button
               onClick={handleOpenCV}
-              className="cursor-hover mt-8 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#49b5ba] to-[#8fd7d1] px-6 py-4 text-sm font-semibold text-[#111517] shadow-[0_18px_34px_rgba(73,181,186,0.28)] transition hover:scale-[1.02]"
+              className="cursor-hover mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#49b5ba] to-[#8fd7d1] px-6 py-4 text-sm font-semibold text-[#111517] shadow-[0_18px_34px_rgba(73,181,186,0.28)] transition hover:scale-[1.02] sm:w-auto"
             >
               <Download className="h-4 w-4" />
               Explore my CV

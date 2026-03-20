@@ -57,7 +57,7 @@ export default function WorkExperience() {
     <section id="experience" className="section-shell">
       <div className="section-container">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="eyebrow justify-center">Experience Timeline</div>
+          <div className="eyebrow max-w-full justify-center">Experience Timeline</div>
           <h2 className="section-title mt-6">A progression shaped by real product delivery.</h2>
           <p className="section-copy mt-6">
             My experience spans internal tools, SEO-focused pages, product webviews, and systems that needed both speed and
@@ -78,7 +78,7 @@ export default function WorkExperience() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.15 }}
                   transition={{ duration: 0.55, delay: index * 0.04 }}
-                  className={`relative grid gap-5 md:grid-cols-2 ${isRight ? "md:[&>*:first-child]:order-2" : ""}`}
+                  className={`relative grid gap-4 md:grid-cols-2 md:gap-5 ${isRight ? "md:[&>*:first-child]:order-2" : ""}`}
                 >
                   <div className={`hidden md:flex ${isRight ? "justify-start pl-10" : "justify-end pr-10"}`}>
                     <div className="max-w-md rounded-full border border-[#f4c96b]/25 bg-[#16110f]/80 px-5 py-3 text-sm font-medium tracking-[0.18em] text-[#f4c96b] shadow-[0_12px_40px_rgba(0,0,0,0.18)] w-fit h-fit">
@@ -87,10 +87,10 @@ export default function WorkExperience() {
                   </div>
 
                   <div className={`relative ${isRight ? "md:pr-10" : "md:pl-10"}`}>
-                    <div className="panel animated-border h-full p-6 md:p-7">
-                      <div className="mb-5 flex items-center justify-between">
+                    <div className="panel animated-border h-full p-5 md:p-7">
+                      <div className="mb-5 flex items-start justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.08] text-[#8ed1cf]">
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/[0.08] text-[#8ed1cf]">
                             <Briefcase className="h-5 w-5" />
                           </div>
                           <div>
@@ -98,10 +98,10 @@ export default function WorkExperience() {
                             <p className="text-xs uppercase tracking-[0.22em] text-[#9ddeda]">Role</p>
                           </div>
                         </div>
-                        <Sparkles className="h-4 w-4 text-[#f4c96b]" />
+                        <Sparkles className="h-4 w-4 shrink-0 text-[#f4c96b]" />
                       </div>
-                      <h3 className="text-2xl font-semibold text-[#fff4e8]">{exp.position}</h3>
-                      <p className="mt-2 text-base font-medium text-[#8fd7d1]">{exp.company}</p>
+                      <h3 className="text-xl font-semibold text-[#fff4e8] sm:text-2xl">{exp.position}</h3>
+                      <p className="mt-2 break-words text-sm font-medium text-[#8fd7d1] sm:text-base">{exp.company}</p>
                       <p className="mt-4 text-sm leading-7 text-[#d1c6bc]">{exp.description}</p>
                       <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#f7b57c]">
                         Product work

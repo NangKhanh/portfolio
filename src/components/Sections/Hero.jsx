@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 import { NextSeo } from "next-seo";
 import { Link } from "react-scroll";
-import { MorphingText } from "../magicui/morphing-text";
 import TypewriterText from "../TypewriterText";
 
 const metrics = [
@@ -30,7 +29,7 @@ export default function Hero() {
     <>
       <NextSeo title="Portfolio | Nguyen Nang Khanh" description="Frontend-focused fullstack developer building polished product experiences." />
       <section id="hero" className="section-shell min-h-screen">
-        <div className="section-container flex min-h-[calc(100vh-6rem)] items-center">
+        <div className="section-container flex min-h-[calc(100vh-5rem)] items-center md:min-h-[calc(100vh-6rem)]">
           <div className="grid w-full gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -38,17 +37,16 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative"
             >
-              <div className="eyebrow mb-6">
+              <div className="eyebrow mb-6 w-fit max-w-full">
                 <Sparkles className="h-4 w-4" />
                 Crafted interfaces with product depth
               </div>
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] text-[#fff5ea] md:text-7xl">
+              <h1 className="max-w-4xl text-4xl font-semibold leading-[1.02] text-[#fff5ea] sm:text-5xl md:text-7xl">
                 Building digital products that feel premium, fast, and intentional.
               </h1>
-              <div className="mt-6 max-w-3xl text-lg leading-8 text-[#d9cdc4] md:text-xl">
+              <div className="mt-6 max-w-3xl text-base leading-7 text-[#d9cdc4] sm:text-lg sm:leading-8 md:text-xl">
                 I am Nguyen Nang Khanh, a frontend-focused fullstack developer turning product requirements into
-                <span className="ml-2 inline-flex min-w-[50px] font-semibold text-[#f7b57c]">
-                  {/* <MorphingText texts={texts} /> */}
+                <span className="ml-2 inline-flex min-h-[1.75rem] min-w-0 break-words font-semibold text-[#f7b57c] sm:min-h-[2rem]">
                   <TypewriterText text={texts} delay={70} infinite />
                 </span>
               </div>
@@ -59,7 +57,7 @@ export default function Hero() {
                   smooth
                   duration={700}
                   offset={-80}
-                  className="cursor-hover inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f79752] to-[#f4c96b] px-7 py-4 text-sm font-semibold text-[#1d130d] shadow-[0_15px_35px_rgba(247,151,82,0.35)] transition hover:scale-[1.02]"
+                  className="cursor-hover inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f79752] to-[#f4c96b] px-6 py-4 text-sm font-semibold text-[#1d130d] shadow-[0_15px_35px_rgba(247,151,82,0.35)] transition hover:scale-[1.02] sm:w-auto sm:px-7"
                 >
                   View Experience
                   <ArrowUpRight className="h-4 w-4" />
@@ -69,7 +67,7 @@ export default function Hero() {
                   smooth
                   duration={700}
                   offset={-80}
-                  className="cursor-hover inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/5 px-7 py-4 text-sm font-semibold text-[#f5ede5] backdrop-blur-md transition hover:bg-white/10"
+                  className="cursor-hover inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/5 px-6 py-4 text-sm font-semibold text-[#f5ede5] backdrop-blur-md transition hover:bg-white/10 sm:w-auto sm:px-7"
                 >
                   Let&apos;s Talk
                 </Link>
@@ -82,9 +80,9 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.15 * index }}
-                    className="panel-soft rounded-[22px] p-5"
+                    className="panel-soft rounded-[22px] p-4 sm:p-5"
                   >
-                    <div className="text-2xl font-semibold text-[#fff5ea]">{metric.value}</div>
+                    <div className="text-xl font-semibold text-[#fff5ea] sm:text-2xl">{metric.value}</div>
                     <p className="mt-2 text-sm leading-6 text-[#baaca2]">{metric.label}</p>
                   </motion.div>
                 ))}
@@ -108,7 +106,7 @@ export default function Hero() {
                 <div className="relative flex items-start justify-between">
                   <div>
                     <p className="text-sm uppercase tracking-[0.26em] text-[#f5b07d]">Creative Engineering</p>
-                    <h2 className="mt-3 text-3xl font-semibold text-[#fff4e8]">From concept to polished release</h2>
+                    <h2 className="mt-3 text-2xl font-semibold text-[#fff4e8] sm:text-3xl">From concept to polished release</h2>
                   </div>
                   <div className="rounded-full border border-white/10 bg-white/5 p-3 text-[#f4c96b]">
                     <Sparkles className="h-5 w-5" />
@@ -133,11 +131,11 @@ export default function Hero() {
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-[24px] bg-[#12161d] p-5">
                     <p className="text-xs uppercase tracking-[0.2em] text-[#7fd6d0]">Focus</p>
-                    <p className="mt-3 text-xl font-semibold text-white">Design-aware frontend systems</p>
+                    <p className="mt-3 text-lg font-semibold text-white sm:text-xl">Design-aware frontend systems</p>
                   </div>
                   <div className="rounded-[24px] bg-[#241814] p-5">
                     <p className="text-xs uppercase tracking-[0.2em] text-[#f4c96b]">Approach</p>
-                    <p className="mt-3 text-xl font-semibold text-white">Clean code with motion that serves the product</p>
+                    <p className="mt-3 text-lg font-semibold text-white sm:text-xl">Clean code with motion that serves the product</p>
                   </div>
                 </div>
               </div>

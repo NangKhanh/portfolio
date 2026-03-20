@@ -51,7 +51,7 @@ const TypewriterText = ({ text, delay = 150, infinite = false }) => {
   }, []);
 
   return (
-    <span>
+    <span className="inline break-words">
       {displayText}
       <span className={`inline-block w-[0.6ch] ${showCursor ? "opacity-100" : "opacity-0"}`}>
         |

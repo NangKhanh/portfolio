@@ -68,7 +68,7 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="eyebrow">Get In Touch</div>
+            <div className="eyebrow w-fit max-w-full">Get In Touch</div>
             <h2 className="section-title mt-6">Let&apos;s build something that feels sharp from the first interaction.</h2>
             <p className="section-copy mt-6">
               For product roles, freelance work, or collaborations, reach out with the scope and I can respond quickly.
@@ -86,14 +86,14 @@ export default function Contact() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
-                  className="cursor-hover panel-soft flex items-center gap-4 p-4 transition hover:border-white/[0.15] hover:bg-white/[0.07]"
+                  className="cursor-hover panel-soft flex items-center gap-3 p-4 transition hover:border-white/[0.15] hover:bg-white/[0.07] sm:gap-4"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.08] text-[#f7b57c]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/[0.08] text-[#f7b57c]">
                     {item.icon}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-xs uppercase tracking-[0.22em] text-[#8fd7d1]">{item.label}</p>
-                    <p className="mt-1 text-sm text-[#f4ebe2]">{item.value}</p>
+                    <p className="mt-1 break-all text-sm text-[#f4ebe2] sm:break-normal">{item.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -117,7 +117,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
               {[
                 { label: "Response", value: "Fast and direct" },
                 { label: "Focus", value: "Frontend quality" },
@@ -139,7 +139,7 @@ export default function Contact() {
                       className="flex w-full items-center justify-between gap-4 text-left"
                       onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
                     >
-                      <span className="text-base font-medium text-[#fff4e8]">{faq.question}</span>
+                      <span className="pr-2 text-sm font-medium text-[#fff4e8] sm:text-base">{faq.question}</span>
                       <span className="text-2xl text-[#f4c96b]">{openFAQ === index ? "−" : "+"}</span>
                     </button>
                     <AnimatePresence initial={false}>

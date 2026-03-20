@@ -74,7 +74,7 @@ export default function Skills() {
     <section id="skills" className="section-shell">
       <div className="section-container">
         <div className="mb-14 max-w-3xl">
-          <div className="eyebrow">Technical Range</div>
+          <div className="eyebrow w-fit max-w-full">Technical Range</div>
           <h2 className="section-title mt-6">A practical stack shaped around modern product work.</h2>
           <p className="section-copy mt-6">
             I am strongest when product quality depends on both engineering fundamentals and visual refinement. The focus is not
@@ -92,7 +92,7 @@ export default function Skills() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.45, delay: index * 0.12 }}
-                  className="panel-soft p-6"
+                  className="panel-soft p-5 sm:p-6"
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.08] text-[#f7b57c]">
                     {group.icon}
@@ -109,14 +109,14 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7 }}
-              className="panel animated-border overflow-hidden p-5"
+              className="panel animated-border overflow-hidden p-4 sm:p-5"
             >
-              <div className="mb-5 flex items-center justify-between">
+              <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm uppercase tracking-[0.24em] text-[#8fd7d1]">Workflow</p>
-                  <h3 className="mt-2 text-2xl font-semibold text-[#fff4e8]">How I usually work</h3>
+                  <h3 className="mt-2 text-xl font-semibold text-[#fff4e8] sm:text-2xl">How I usually work</h3>
                 </div>
-                <div className="rounded-full border border-white/10 bg-white/5 p-3 text-[#f4c96b]">
+                <div className="shrink-0 rounded-full border border-white/10 bg-white/5 p-3 text-[#f4c96b]">
                   <Wand2 className="h-5 w-5" />
                 </div>
               </div>
@@ -149,19 +149,26 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.75 }}
-              className="panel min-h-[340px] p-6"
+              className="panel min-h-[340px] p-4 sm:p-6"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm uppercase tracking-[0.24em] text-[#f5b07d]">Stack Orbit</p>
-                  <h3 className="mt-2 text-2xl font-semibold text-white">Tools I reach for often</h3>
+                  <h3 className="mt-2 text-xl font-semibold text-white sm:text-2xl">Tools I reach for often</h3>
                 </div>
-                <div className="rounded-full bg-white/[0.06] px-4 py-2 text-xs uppercase tracking-[0.22em] text-[#9bdfda]">
+                <div className="shrink-0 rounded-full bg-white/[0.06] px-4 py-2 text-xs uppercase tracking-[0.22em] text-[#9bdfda]">
                   Active
                 </div>
               </div>
-              <div className="relative mt-4 flex min-h-[240px] items-center justify-center overflow-hidden rounded-[24px] border border-white/[0.08] bg-[radial-gradient(circle_at_center,rgba(73,181,186,0.14),transparent_46%)]">
+              <div className="relative mt-4 hidden min-h-[240px] items-center justify-center overflow-hidden rounded-[24px] border border-white/[0.08] bg-[radial-gradient(circle_at_center,rgba(73,181,186,0.14),transparent_46%)] sm:flex">
                 <IconCloud images={images} />
+              </div>
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:hidden">
+                {slugs.slice(0, 8).map((slug) => (
+                  <div key={slug} className="rounded-2xl border border-white/[0.08] bg-white/[0.04] px-3 py-3 text-center text-xs font-medium uppercase tracking-[0.14em] text-[#e6ddd6]">
+                    {slug.replace("dotjs", ".js")}
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -170,14 +177,14 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.75, delay: 0.08 }}
-              className="panel-soft p-6"
+              className="panel-soft p-4 sm:p-6"
             >
-              <div className="mb-6 flex items-center justify-between">
+              <div className="mb-6 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm uppercase tracking-[0.24em] text-[#f4c96b]">Depth</p>
-                  <h3 className="mt-2 text-2xl font-semibold text-white">Core strengths</h3>
+                  <h3 className="mt-2 text-xl font-semibold text-white sm:text-2xl">Core strengths</h3>
                 </div>
-                <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-[#d6c8be]">
+                <div className="shrink-0 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-[#d6c8be]">
                   2026
                 </div>
               </div>

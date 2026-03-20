@@ -19,7 +19,7 @@ export default function Layout({ children }) {
         <div className="grid-overlay absolute inset-0 opacity-25" />
       </div>
       <Header />
-      <main className="relative z-10 pt-24">{children}</main>
+      <main className="relative z-10 pt-20 md:pt-24">{children}</main>
       <Footer />
     </div>
   );
