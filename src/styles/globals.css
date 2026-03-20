@@ -120,6 +120,26 @@
   }
 }
 
+@media (max-width: 767px) {
+  @layer components {
+    .eyebrow {
+      @apply backdrop-blur-0;
+      background-color: rgba(29, 23, 21, 0.9);
+    }
+
+    .panel {
+      @apply backdrop-blur-sm;
+      background-color: rgba(24, 19, 17, 0.88);
+    }
+
+    .panel-soft {
+      @apply backdrop-blur-0;
+      background-color: rgba(28, 22, 20, 0.92);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+  }
+}
+
 @keyframes drift {
   0%,
   100% {
