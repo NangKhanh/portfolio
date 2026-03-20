@@ -9,16 +9,18 @@ const experiences = [
     description: "Learn and support project development.",
   },
   {
-    year: "01/2024 – now",
+    year: "01/2024 – 04/2025",
     position: "FullStack Developer",
     company: "Ecocheck Tenant - BeevR Technologies",
-    description: "Develop software to support evaluation and calculation of emissions for businesses and organizations looking to measure and improve their environmental impact.",
+    description:
+      "Develop software to support evaluation and calculation of emissions for businesses and organizations looking to measure and improve their environmental impact.",
   },
   {
     year: "3/2024 – 01/2025",
     position: "FullStack Developer",
     company: "Ecocheck Landing Page - BeevR Technologies",
-    description: "Build a landing page website for SEO, collect user data, provide certification through a greenhouse gas inventory lesson system.",
+    description:
+      "Build a landing page website for SEO, collect user data, provide certification through a greenhouse gas inventory lesson system.",
   },
   {
     year: "5/2024 – 6/2024",
@@ -27,10 +29,32 @@ const experiences = [
     description: "Build a introduce website for company.",
   },
   {
-    year: "09/2024 – now",
+    year: "09/2024 – 04/2025",
     position: "Back-End Developer",
     company: "Subscriptions service - BeevR Technologies",
-    description: "Build a common resource management and subscription system for different projects (ecocheck tenant and others).",
+    description:
+      "Build a common resource management and subscription system for different projects (ecocheck tenant and others).",
+  },
+  {
+    year: "05/2025 – 12/2025",
+    position: "Front-End Developer",
+    company: "Synaptic - Sotatek",
+    description:
+      "Develop and implement UI features for a scheduling website, enabling doctors and patients to create and manage appointments.",
+  },
+  {
+    year: "09/2025 – 12/2025",
+    position: "Front-End Developer",
+    company: "SotaVision - Sotatek/US client",
+    description:
+      "Standardize quality with AI and Computer Vision for precise defect detection and real-time feedback. Try the interactive demo, then partner with us to tailor SotaVision to your environment.",
+  },
+  
+  {
+    year: "09/2025 – now",
+    position: "Front-End Developer",
+    company: "Sentbe - Sotatek/South Korea client",
+    description:'Develop and maintain the webview for a cross-border remittance application from Korea.'
   }
 ];
 
@@ -40,14 +64,17 @@ export default function WorkExperience() {
       id="experience"
       className="py-20 px-6 text-center bg-gradient-to-r from-[#E8CBC0] to-[#aab2d8] dark:from-[#796772] dark:to-[#25182e] "
     >
-      <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 pt-10">Work Experience</h2>
+      <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 pt-10">
+        Work Experience
+      </h2>
       <div className="relative max-w-4xl mx-auto">
         <div className="absolute left-1/2 w-1 bg-gray-300 dark:bg-gray-600 h-full transform -translate-x-1/2"></div>
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            className={`relative flex items-center justify-between mb-10 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-              }`}
+            className={`relative flex items-center justify-between mb-10 ${
+              index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+            }`}
             // initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             // whileInView={{ opacity: 1, x: 0 }}
             // viewport={{ once: true }}
@@ -56,10 +83,13 @@ export default function WorkExperience() {
             <div className="w-1/2 p-4">
               <h3 className="text-xl font-semibold">{exp.position}</h3>
               <p className="text-gray-700 dark:text-gray-300">{exp.company}</p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">{exp.description}</p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
+                {exp.description}
+              </p>
             </div>
             <div className="w-1/2 flex justify-center">
-              <div className="bg-gray-200 dark:bg-gray-700 p-4 rounded-full shadow-lg">{exp.year}
+              <div className="bg-gray-200 dark:bg-gray-700 p-4 rounded-full shadow-lg">
+                {exp.year}
               </div>
             </div>
           </motion.div>
