@@ -145,7 +145,7 @@ export default function Hero() {
               <motion.div
                 className="absolute -bottom-8 right-4 hidden rounded-[24px] border border-white/10 bg-[#0f1518]/90 px-5 py-4 shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl md:block"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 0.3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               >
                 <p className="text-xs uppercase tracking-[0.24em] text-[#8ed1cf]">Current stack</p>
                 <p className="mt-2 text-lg font-semibold text-white">Next.js, React, TypeScript, Node.js</p>
