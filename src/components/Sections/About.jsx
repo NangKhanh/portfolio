@@ -27,7 +27,7 @@ export default function About() {
 
   const handleOpenCV = () => {
     window.open(
-      "https://drive.google.com/file/d/1O9DEZXFnQ5GInfhcuzc7FewVZehEksRH/view?usp=sharing",
+      "https://drive.google.com/file/d/1ZOeXDyDOKyJw2Kw9gvWx9p84l_qL5Vvb/view?usp=drive_link",
       "_blank"
     );
   };
